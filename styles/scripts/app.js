@@ -163,3 +163,6 @@ function toggleMobileMenu() {
 function renderCurrentPage() {
     const currentPage = State.getCurrentPage();
     
+     // Hide all pages
+    elements.pages.forEach(page => page.classList.remove('active'));
+    
