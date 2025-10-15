@@ -1,3 +1,4 @@
+import { loadRecords, saveRecords, loadSettings, saveSettings } from './storage.js';
 // Application state
 const state = {
     records: [],
