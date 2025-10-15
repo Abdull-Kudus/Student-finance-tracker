@@ -134,3 +134,22 @@ function setupEventListeners() {
        // Set default date
     elements.date.value = new Date().toISOString().split('T')[0];
 }
+
+// Handle navigation click
+function handleNavClick(e) {
+    e.preventDefault();
+    const page = e.currentTarget.dataset.page;
+    
+    // Update active state
+    elements.navLinks.forEach(link => link.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    
+    // Update page
+    State.setCurrentPage(page);
+    renderCurrentPage();
+    
+    // Close mobile menu
+    elements.navMenu.classList.remove('active');
+    elements.mobileMenuBtn.setAttribute('aria-expanded', 'false');
+}
+
