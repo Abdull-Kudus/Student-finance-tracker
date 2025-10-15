@@ -110,3 +110,7 @@ function setupEventListeners() {
         btn.addEventListener('click', handleSort);
     });
     
+    // Export/Import
+    elements.exportBtn.addEventListener('click', handleExport);
+    elements.importFile.addEventListener('change', handleImport);
+    
