@@ -373,3 +373,13 @@ function renderSettings() {
     
     updateConversionDisplay();
 }
+
+// Update conversion display
+function updateConversionDisplay() {
+    const settings = State.getSettings();
+    const rwfRate = settings.currencies.RWF;
+    const ghsRate = settings.currencies.GHS;
+    
+    elements.convert100RWF.textContent = (100 * rwfRate).toLocaleString();
+    elements.convert100GHS.textContent = (100 * ghsRate).toLocaleString();
+}
