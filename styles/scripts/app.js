@@ -153,3 +153,8 @@ function handleNavClick(e) {
     elements.mobileMenuBtn.setAttribute('aria-expanded', 'false');
 }
 
+// Toggle mobile menu
+function toggleMobileMenu() {
+    const isOpen = elements.navMenu.classList.toggle('active');
+    elements.mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+}
