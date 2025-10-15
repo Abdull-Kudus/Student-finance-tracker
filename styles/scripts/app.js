@@ -436,3 +436,11 @@ function handleFormSubmit(e) {
     // Update dashboard
     renderDashboard();
 }
+// Handle form cancel click
+function handleFormCancel() {
+    State.setEditingId(null);
+    elements.transactionForm.reset();
+    clearFormErrors();
+    elements.date.value = new Date().toISOString().split('T')[0];
+    renderForm();
+}
