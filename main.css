@@ -774,3 +774,58 @@ h3 {
     gap: 0.75rem;
     font-size: 0.875rem;
 }
+
+/* SETTINGS PAGE */
+.settings-container {
+    max-width: 800px;
+}
+
+.settings-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+.currency-rates {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-top: 1rem;
+}
+
+.currency-rates h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.currency-rates .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.currency-rates label {
+    font-weight: 500;
+}
+
+.conversion-display {
+    background: #eff6ff;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-top: 1rem;
+}
+
+.conversion-display h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.conversion-display p {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
