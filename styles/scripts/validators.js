@@ -50,3 +50,24 @@ export const ValidationRules = {
         }
     }
 };
+
+/**
+ * Validate a single field
+ * @param {string} fieldName - Name of the field to validate
+ * @param {string} value - Value to validate
+ * @returns {Object} { isValid: boolean, message: string }
+ */
+export function validateField(fieldName, value) {
+    const rule = ValidationRules[fieldName];
+    
+    if (!rule) {
+        return { isValid: true, message: '' };
+    }
+    
+    const isValid = rule.test(value);
+    
+    return {
+        isValid,
+        message: isValid ? '' : rule.message
+    };
+}
