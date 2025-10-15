@@ -115,3 +115,40 @@ export function validateForm(formData) {
         errors
     };
 }
+
+/**
+ * Real-time field validation for live feedback
+ * @param {HTMLInputElement} input - Input element
+ * @param {HTMLElement} errorElement - Error message element
+ */
+export function setupLiveValidation(input, errorElement) {
+    input.addEventListener('blur', () => {
+        const fieldName = input.id;
+        const value = input.value.trim();
+        const result = validateField(fieldName, value);
+        
+        if (!result.isValid) {
+            input.classList.add('error');
+            errorElement.textContent = result.message;
+            errorElement.style.display = 'block';
+        } else {
+            input.classList.remove('error');
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+        }
+    });
+    
+    input.addEventListener('input', () => {
+        if (input.classList.contains('error')) {
+            const fieldName = input.id;
+            const value = input.value.trim();
+            const result = validateField(fieldName, value);
+            
+            if (result.isValid) {
+                input.classList.remove('error');
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+            }
+        }
+    });
+}
