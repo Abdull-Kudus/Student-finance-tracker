@@ -29,3 +29,32 @@ export function saveRecords(records) {
         return false;
     }
 }
+
+/**
+ * Load settings from localStorage
+ * @returns {Object} 
+ */
+export function loadSettings() {
+    try {
+        const settings = localStorage.getItem(SETTINGS_KEY);
+        return settings ? JSON.parse(settings) : getDefaultSettings();
+    } catch (error) {
+        console.error('Error loading settings:', error);
+        return getDefaultSettings();
+    }
+}
+
+/**
+ * Save settings to localStorage
+ * @param {Object} settings 
+ * @returns {boolean} 
+ */
+export function saveSettings(settings) {
+    try {
+        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+        return true;
+    } catch (error) {
+        console.error('Error saving settings:', error);
+        return false;
+    }
+}
