@@ -138,6 +138,37 @@
                 </p>
             </div>
 
+             <div id="recordsContainer">
+                <!-- Desktop table view -->
+                <div class="table-container desktop-only">
+                    <table id="recordsTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <button class="sort-btn" data-sort="date">
+                                        Date <span class="sort-icon">↕</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    <button class="sort-btn" data-sort="description">
+                                        Description <span class="sort-icon">↕</span>
+                                    </button>
+                                </th>
+                                <th>Category</th>
+                                <th>
+                                    <button class="sort-btn" data-sort="amount">
+                                        Amount <span class="sort-icon">↕</span>
+                                    </button>
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordsTableBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
 
 
 
