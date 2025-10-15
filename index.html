@@ -9,9 +9,33 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <header>  
+     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+     <!-- Header and navigation -->
+    <header role="banner">  
+         <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <h1>Student Finance Tracker</h1>
+                </div>
 
+                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a></li>
+                    <li><a href="#records" class="nav-link" data-page="records">Transactions</a></li>
+                    <li><a href="#add" class="nav-link" data-page="add">Add</a></li>
+                    <li><a href="#settings" class="nav-link" data-page="settings">Settings</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
     
 
