@@ -444,3 +444,19 @@ function handleFormCancel() {
     elements.date.value = new Date().toISOString().split('T')[0];
     renderForm();
 }
+
+// Display form errors
+function displayFormErrors(errors) {
+    clearFormErrors();
+    
+    Object.keys(errors).forEach(field => {
+        const input = elements[field];
+        const errorElement = elements[`${field}Error`];
+        
+        if (input && errorElement) {
+            input.classList.add('error');
+            errorElement.textContent = errors[field];
+            errorElement.style.display = 'block';
+        }
+    });
+}
