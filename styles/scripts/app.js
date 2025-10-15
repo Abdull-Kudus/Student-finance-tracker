@@ -427,3 +427,12 @@ function handleFormSubmit(e) {
         State.addRecord(formData);
         showStatus('Transaction added successfully!', 'success');
     }
+
+    // Reset form
+    elements.transactionForm.reset();
+    clearFormErrors();
+    elements.date.value = new Date().toISOString().split('T')[0];
+    
+    // Update dashboard
+    renderDashboard();
+}
