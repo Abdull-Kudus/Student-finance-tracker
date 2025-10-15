@@ -579,4 +579,22 @@ function handleClearData() {
     }
 }
 
+// Show status message
+function showStatus(message, type = 'info') {
+    elements.statusMessage.textContent = message;
+    elements.statusMessage.className = `status-message ${type}`;
+    elements.statusMessage.classList.remove('hidden');
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        elements.statusMessage.classList.add('hidden');
+    }, 5000);
+}
+
+// Initialize app when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
 
