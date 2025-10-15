@@ -166,3 +166,8 @@ function renderCurrentPage() {
      // Hide all pages
     elements.pages.forEach(page => page.classList.remove('active'));
     
+    // Show current page
+    const pageElement = document.getElementById(`page-${currentPage}`);
+    if (pageElement) {
+        pageElement.classList.add('active');
+    }
