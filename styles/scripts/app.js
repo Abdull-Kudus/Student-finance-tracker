@@ -305,7 +305,7 @@ function renderRecords() {
             </div>
         </div>
     `).join('');
-    
+
     // Update sort indicators
     const sortState = State.getSortState();
     elements.sortButtons.forEach(btn => {
@@ -320,3 +320,43 @@ function renderRecords() {
     });
 }
     
+// Render add/edit form
+function renderForm() {
+    const editingId = State.getEditingId();
+    
+    if (editingId) {
+        const record = State.getRecordById(editingId);
+        if (record) {
+            elements.formTitle.textContent = 'Edit Transaction';
+            elements.submitBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Update Transaction
+            `;
+            elements.cancelBtn.classList.remove('hidden');
+            
+            // Fill form
+            elements.description.value = record.description;
+            elements.amount.value = record.amount;
+            elements.category.value = record.category;
+            elements.date.value = record.date;
+        }
+    } else {
+        elements.formTitle.textContent = 'Add New Transaction';
+        elements.submitBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Add Transaction
+        `;
+        elements.cancelBtn.classList.add('hidden');
+        
+        // Clear form
+        elements.transactionForm.reset();
+        elements.date.value = new Date().toISOString().split('T')[0];
+    }
+    
+    // Clear errors
+    clearFormErrors();
+}
