@@ -122,6 +122,22 @@
                 </div>
             </div>
 
+             <div class="search-container">
+                <label for="searchPattern" class="form-label">Regex Search</label>
+                <div class="search-input-group">
+                    <input type="text" id="searchPattern" placeholder="e.g. Type a word, or use patterns like 'Rent" class="input-field">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="caseSensitive">
+                        <span>Case Sensitive</span>
+                    </label>
+                </div>
+                <p class="help-text" id="search-help">
+                    Examples: <code>\.\d{2}\b</code> (has cents), 
+                    <code>jollof</code> (contains word),
+                    <code>\b(\w+)\s+\1\b</code> (duplicate words)
+                </p>
+            </div>
+
 
 
 
