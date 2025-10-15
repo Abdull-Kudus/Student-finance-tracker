@@ -58,3 +58,53 @@ export function saveSettings(settings) {
         return false;
     }
 }
+
+/**
+ * Get default settings
+ * @returns {Object} 
+ */
+function getDefaultSettings() {
+    return {
+        baseCurrency: 'USD',
+        currencies: {
+            USD: 1,
+            RWF: 1300,
+            GHS: 15
+        },
+        budgetCap: 1000
+    };
+}
+
+/**
+ * Clear all data from localStorage
+ */
+export function clearAllData() {
+    try {
+        localStorage.removeItem(STORAGE_KEY);
+        return true;
+    } catch (error) {
+        console.error('Error clearing data:', error);
+        return false;
+    }
+}
+
+/**
+ * Validate imported JSON data
+ * @param {*} data 
+ * @returns {boolean} 
+ */
+export function validateImportData(data) {
+    if (!Array.isArray(data)) {
+        return false;
+    }
+    
+    return data.every(record => 
+        record.id && 
+        record.description && 
+        typeof record.amount === 'number' && 
+        record.category && 
+        record.date &&
+        record.createdAt &&
+        record.updatedAt
+    );
+}
