@@ -236,3 +236,75 @@ h3 {
     margin-bottom: 1rem;
     color: var(--text-primary);
 }
+
+/* DASHBORD STATS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card.stat-blue {
+    border-color: var(--info);
+}
+
+.stat-card.stat-green {
+    border-color: var(--success);
+}
+
+.stat-card.stat-purple {
+    border-color: #7c3aed;
+}
+
+.stat-card.over-budget {
+    border-color: var(--danger);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: var(--text-primary);
+}
+
+.stat-value-small {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: var(--text-primary);
+}
+
+.stat-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.stat-value.text-danger {
+    color: var(--danger);
+}
+
+.stat-value.text-success {
+    color: var(--success);
+}
