@@ -42,6 +42,40 @@ body {
     min-height: 100vh;
 }
 
+/* ACCESSIBILITY */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-md) 0;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+*:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 /* HEADER AND NAVIGATION */
 header {
     background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
