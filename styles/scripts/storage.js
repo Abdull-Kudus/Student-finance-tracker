@@ -14,3 +14,18 @@ export function loadRecords() {
         return [];
     }
 }
+
+/**
+ * Save transactions to localStorage
+ * @param {Array} records 
+ * @returns {boolean} 
+ */
+export function saveRecords(records) {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+        return true;
+    } catch (error) {
+        console.error('Error saving records:', error);
+        return false;
+    }
+}
