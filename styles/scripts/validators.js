@@ -71,3 +71,47 @@ export function validateField(fieldName, value) {
         message: isValid ? '' : rule.message
     };
 }
+
+**
+ * Validate entire form data
+ * @param {Object} formData - Form data object
+ * @returns {Object} { isValid: boolean, errors: Object }
+ */
+export function validateForm(formData) {
+    const errors = {};
+    
+    // Validate description
+    const descResult = validateField('description', formData.description);
+    if (!descResult.isValid) {
+        errors.description = descResult.message;
+    }
+    
+    // Check for duplicate words (advanced regex)
+    const dupResult = validateField('duplicateWords', formData.description);
+    if (!dupResult.isValid) {
+        errors.description = dupResult.message;
+    }
+    
+    // Validate amount
+    const amountResult = validateField('amount', formData.amount);
+    if (!amountResult.isValid) {
+        errors.amount = amountResult.message;
+    }
+    
+    // Validate date
+    const dateResult = validateField('date', formData.date);
+    if (!dateResult.isValid) {
+        errors.date = dateResult.message;
+    }
+    
+    // Validate category
+    const categoryResult = validateField('category', formData.category);
+    if (!categoryResult.isValid) {
+        errors.category = categoryResult.message;
+    }
+    
+    return {
+        isValid: Object.keys(errors).length === 0,
+        errors
+    };
+}
