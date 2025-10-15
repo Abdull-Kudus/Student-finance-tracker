@@ -473,3 +473,78 @@ function clearFormErrors() {
         }
     });
 }
+
+// Edit records
+window.editRecord = function(id) {
+    State.setEditingId(id);
+    State.setCurrentPage('add');
+    
+    // Update navigation
+    elements.navLinks.forEach(link => {
+        if (link.dataset.page === 'add') {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    renderCurrentPage();
+};
+// Delete records
+window.deleteRecord = function(id) {
+    const record = State.getRecordById(id);
+    
+    if (!record) return;
+    
+    if (confirm(`Are you sure you want to delete "${record.description}"?`)) {
+        State.deleteRecord(id);
+        showStatus('Transaction deleted', 'success');
+        renderRecords();
+        renderDashboard();
+    }
+};
+// Handle export button click
+function handleExport() {
+    const records = State.getRecords();
+    const dataStr = JSON.stringify(records, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `finance-tracker-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showStatus('Data exported successfully!', 'success');
+}
+// Handle import 
+function handleImport(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = (event) => {
+        try {
+            const imported = JSON.parse(event.target.result);
+            
+            if (!Storage.validateImportData(imported)) {
+                throw new Error('Invalid data format');
+            }
+            
+            State.importRecords(imported);
+            showStatus(`Imported ${imported.length} transactions!`, 'success');
+            renderRecords();
+            renderDashboard();
+        } catch (err) {
+            showStatus('Import failed: Invalid JSON format', 'error');
+        }
+    };
+    
+    reader.readAsText(file);
+    e.target.value = '';
+}
+
+
