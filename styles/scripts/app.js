@@ -188,3 +188,44 @@ function renderCurrentPage() {
             break;
     }
 }
+
+// Render dashboard statistics
+function renderDashboard() {
+    const stats = State.calculateStats();
+    
+    // Update stats
+    elements.statTotal.textContent = `$${stats.total.toFixed(2)}`;
+    elements.statCount.textContent = `${stats.count} transactions`;
+    elements.stat7Days.textContent = `$${stats.last7Total.toFixed(2)}`;
+    elements.stat7Count.textContent = `${stats.last7Count} transactions`;
+    elements.statTopCategory.textContent = stats.topCategory;
+    elements.statTopAmount.textContent = `$${stats.topCategoryAmount.toFixed(2)}`;
+    
+    // Budget card
+    elements.statRemaining.textContent = `$${Math.abs(stats.remaining).toFixed(2)}`;
+    elements.budgetStatus.textContent = stats.overBudget ? 'Over budget' : 'Remaining';
+    
+    if (stats.overBudget) {
+        elements.budgetCard.classList.add('over-budget');
+        elements.statRemaining.classList.add('text-danger');
+        elements.statRemaining.classList.remove('text-success');
+    } else {
+        elements.budgetCard.classList.remove('over-budget');
+        elements.statRemaining.classList.add('text-success');
+        elements.statRemaining.classList.remove('text-danger');
+    }
+    
+    // Progress bar
+    elements.monthSpent.textContent = `$${stats.monthTotal.toFixed(2)}`;
+    elements.budgetCap.textContent = `$${stats.budgetCap.toFixed(2)}`;
+    elements.progressBar.style.width = `${Math.min(stats.percentage, 100)}%`;
+    elements.progressBar.setAttribute('aria-valuenow', stats.monthTotal);
+    elements.progressBar.setAttribute('aria-valuemax', stats.budgetCap);
+    elements.progressPercentage.textContent = `${stats.percentage.toFixed(1)}% used`;
+    
+    if (stats.overBudget) {
+        elements.progressBar.classList.add('over-budget');
+    } else {
+        elements.progressBar.classList.remove('over-budget');
+    }
+}
