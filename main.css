@@ -351,3 +351,26 @@ h3 {
     color: var(--text-secondary);
     margin-top: 0.5rem;
 }
+
+/* INFO BOX  */
+.info-box {
+    background: linear-gradient(135deg, #eff6ff 0%, #f3e8ff 100%);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 2px solid #bfdbfe;
+}
+
+.info-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--info);
+}
+
+.info-box p {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
