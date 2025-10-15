@@ -360,3 +360,16 @@ function renderForm() {
     // Clear errors
     clearFormErrors();
 }
+
+// Render settings
+function renderSettings() {
+    const settings = State.getSettings();
+    
+    elements.budgetCapInput.value = settings.budgetCap;
+    elements.baseCurrency.value = settings.baseCurrency;
+    elements.rateUSD.value = settings.currencies.USD;
+    elements.rateRWF.value = settings.currencies.RWF;
+    elements.rateGHS.value = settings.currencies.GHS;
+    
+    updateConversionDisplay();
+}
