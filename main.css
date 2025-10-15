@@ -489,3 +489,100 @@ h3 {
     height: 1rem;
     cursor: pointer;
 }
+
+/* TABLE STYLES */
+.table-container {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+#recordsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#recordsTable thead {
+    background: #f9fafb;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#recordsTable th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+#recordsTable td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#recordsTable tbody tr {
+    transition: var(--transition);
+}
+
+#recordsTable tbody tr:hover {
+    background: #f9fafb;
+}
+
+.sort-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sort-btn:hover {
+    color: var(--primary);
+}
+
+.sort-icon {
+    font-size: 0.75rem;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    border-radius: var(--radius-sm);
+}
+
+.icon-btn:hover {
+    background: #f3f4f6;
+}
+
+.icon-btn.edit:hover {
+    color: var(--info);
+    background: #dbeafe;
+}
+
+.icon-btn.delete:hover {
+    color: var(--danger);
+    background: #fee2e2;
+}
