@@ -91,3 +91,22 @@ function cacheElements() {
         clearDataBtn: document.getElementById('clearDataBtn')
     };
 }
+
+// Setup all event listeners 
+function setupEventListeners() {
+    // Navigation
+    elements.navLinks.forEach(link => {
+        link.addEventListener('click', handleNavClick);
+    });
+    
+    elements.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    
+    // Search
+    elements.searchPattern.addEventListener('input', handleSearch);
+    elements.caseSensitive.addEventListener('change', handleSearch);
+    
+    // Sorting
+    elements.sortButtons.forEach(btn => {
+        btn.addEventListener('click', handleSort);
+    });
+    
