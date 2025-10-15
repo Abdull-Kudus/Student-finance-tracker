@@ -1,0 +1,52 @@
+export const ValidationRules = {
+    description: {
+        pattern: /^\S(?:.*\S)?$/,
+        message: 'Cannot start/end with spaces or be only spaces',
+        minLength: 3,
+        test(value) {
+            return this.pattern.test(value) && value.length >= this.minLength;
+        }
+    },
+    
+    amount: {
+        pattern: /^(0|[1-9]\d*)(\.\d{1,2})?$/,
+        message: 'Must be a valid number with max 2 decimals',
+        test(value) {
+            return this.pattern.test(value) && parseFloat(value) >= 0;
+        }
+    },
+    
+    date: {
+        pattern: /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/,
+        message: 'Must be YYYY-MM-DD format',
+        test(value) {
+            return this.pattern.test(value);
+        }
+    },
+    
+    category: {
+        pattern: /^[A-Za-z]+(?:[ -][A-Za-z]+)*$/,
+        message: 'Letters, spaces, hyphens only',
+        minLength: 2,
+        test(value) {
+            return this.pattern.test(value) && value.length >= this.minLength;
+        }
+    },
+    
+    // Advanced regex with backreference
+    duplicateWords: {
+        pattern: /\b(\w+)\s+\1\b/,
+        message: 'Contains duplicate consecutive words',
+        test(value) {
+            return !this.pattern.test(value);
+        }
+    },
+    
+    // Search patterns
+    hasCents: {
+        pattern: /\.\d{2}\b/,
+        test(value) {
+            return this.pattern.test(value);
+        }
+    }
+};
