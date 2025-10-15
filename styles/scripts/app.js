@@ -390,3 +390,10 @@ function handleSearch() {
     State.setCaseSensitive(elements.caseSensitive.checked);
     renderRecords();
 }
+
+// Handle sort button click
+function handleSort(e) {
+    const field = e.currentTarget.dataset.sort;
+    State.setSortBy(field);
+    renderRecords();
+}
