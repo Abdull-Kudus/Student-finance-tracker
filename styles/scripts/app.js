@@ -229,3 +229,94 @@ function renderDashboard() {
         elements.progressBar.classList.remove('over-budget');
     }
 }
+
+// Render records list
+function renderRecords() {
+    const sorted = State.getSortedRecords();
+    const pattern = State.getSearchPattern();
+    const caseSensitive = State.getCaseSensitive();
+    
+    const searchResult = searchRecords(sorted, pattern, caseSensitive);
+    const { results, regex } = searchResult;
+    
+    if (results.length === 0) {
+        elements.emptyState.classList.remove('hidden');
+        elements.recordsTableBody.innerHTML = '';
+        elements.recordsCards.innerHTML = '';
+        return;
+    }
+    
+    elements.emptyState.classList.add('hidden');
+    
+    // Render table
+    elements.recordsTableBody.innerHTML = results.map(record => `
+        <tr>
+            <td>${record.date}</td>
+            <td>${highlightMatches(record.description, regex)}</td>
+            <td><span class="category-badge">${record.category}</span></td>
+            <td><strong>$${record.amount.toFixed(2)}</strong></td>
+            <td>
+                <div class="action-buttons">
+                    <button class="icon-btn edit" onclick="window.editRecord('${record.id}')" aria-label="Edit ${record.description}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn delete" onclick="window.deleteRecord('${record.id}')" aria-label="Delete ${record.description}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    `).join('');
+    
+    // Render cards
+    elements.recordsCards.innerHTML = results.map(record => `
+        <div class="record-card">
+            <div class="record-card-header">
+                <div class="record-card-title">
+                    <div class="record-card-description">${highlightMatches(record.description, regex)}</div>
+                    <div class="record-card-date">${record.date}</div>
+                </div>
+                <div class="record-card-amount">
+                    <div class="record-card-value">$${record.amount.toFixed(2)}</div>
+                    <span class="category-badge">${record.category}</span>
+                </div>
+            </div>
+            <div class="record-card-actions">
+                <button class="card-btn edit" onclick="window.editRecord('${record.id}')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    Edit
+                </button>
+                <button class="card-btn delete" onclick="window.deleteRecord('${record.id}')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    Delete
+                </button>
+            </div>
+        </div>
+    `).join('');
+    
+    // Update sort indicators
+    const sortState = State.getSortState();
+    elements.sortButtons.forEach(btn => {
+        const field = btn.dataset.sort;
+        const icon = btn.querySelector('.sort-icon');
+        
+        if (field === sortState.sortBy) {
+            icon.textContent = sortState.sortDir === 'asc' ? '↑' : '↓';
+        } else {
+            icon.textContent = '↕';
+        }
+    });
+}
+    
