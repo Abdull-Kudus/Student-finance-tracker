@@ -158,3 +158,8 @@ function toggleMobileMenu() {
     const isOpen = elements.navMenu.classList.toggle('active');
     elements.mobileMenuBtn.setAttribute('aria-expanded', isOpen);
 }
+
+// Render current page
+function renderCurrentPage() {
+    const currentPage = State.getCurrentPage();
+    
