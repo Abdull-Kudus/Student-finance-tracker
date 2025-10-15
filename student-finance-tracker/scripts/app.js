@@ -9,6 +9,33 @@ import { searchRecords, highlightMatches } from './search.js';
 let elements = {};
 
 /**
+ * Initialize theme from localStorage
+ */
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+/**
+ * Toggle between light and dark theme
+ */
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button aria-label
+    elements.themeToggle.setAttribute('aria-label', 
+        newTheme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
+    );
+    
+    // Show brief status message
+    showStatus(`Switched to ${newTheme} mode`, 'success');
+}
+
+/**
  * Initialize the application
  */
 function init() {
@@ -29,6 +56,7 @@ function init() {
 function cacheElements() {
     elements = {
         // Navigation
+        themeToggle: document.getElementById('themeToggle'),
         navLinks: document.querySelectorAll('.nav-link'),
         mobileMenuBtn: document.getElementById('mobileMenuBtn'),
         navMenu: document.getElementById('navMenu'),
@@ -100,6 +128,7 @@ function setupEventListeners() {
     });
     
     elements.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    elements.themeToggle.addEventListener('click', toggleTheme);
     
     // Search
     elements.searchPattern.addEventListener('input', handleSearch);
