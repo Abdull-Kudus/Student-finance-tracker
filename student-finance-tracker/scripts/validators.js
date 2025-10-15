@@ -1,3 +1,4 @@
+// scripts/validators.js
 export const ValidationRules = {
     description: {
         pattern: /^\S(?:.*\S)?$/,
@@ -72,7 +73,7 @@ export function validateField(fieldName, value) {
     };
 }
 
-**
+/**
  * Validate entire form data
  * @param {Object} formData - Form data object
  * @returns {Object} { isValid: boolean, errors: Object }
