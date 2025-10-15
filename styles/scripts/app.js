@@ -171,3 +171,20 @@ function renderCurrentPage() {
     if (pageElement) {
         pageElement.classList.add('active');
     }
+
+    // Render page content
+    switch (currentPage) {
+        case 'dashboard':
+            renderDashboard();
+            break;
+        case 'records':
+            renderRecords();
+            break;
+        case 'add':
+            renderForm();
+            break;
+        case 'settings':
+            renderSettings();
+            break;
+    }
+}
