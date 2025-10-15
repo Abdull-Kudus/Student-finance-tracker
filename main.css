@@ -586,3 +586,104 @@ h3 {
     color: var(--danger);
     background: #fee2e2;
 }
+
+/* MOBILE CARDS VIEW */
+.cards-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.record-card {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.record-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 0.5rem;
+}
+
+.record-card-title {
+    flex: 1;
+}
+
+.record-card-description {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.record-card-date {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.record-card-amount {
+    text-align: right;
+}
+
+.record-card-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.record-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.card-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    background: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.card-btn.edit {
+    color: var(--info);
+}
+
+.card-btn.edit:hover {
+    background: #dbeafe;
+}
+
+.card-btn.delete {
+    color: var(--danger);
+}
+
+.card-btn.delete:hover {
+    background: #fee2e2;
+}
+
+/* EMPTY STATES */
+.empty-state {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.empty-state svg {
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+}
