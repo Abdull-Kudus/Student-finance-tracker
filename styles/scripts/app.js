@@ -546,5 +546,37 @@ function handleImport(e) {
     reader.readAsText(file);
     e.target.value = '';
 }
+// Handle budget cap change
+function handleBudgetCapChange() {
+    const newCap = parseFloat(elements.budgetCapInput.value) || 1000;
+    State.updateSettings({ budgetCap: newCap });
+    showStatus('Budget cap updated', 'success');
+    renderDashboard();
+}
+// Handle currency change
+function handleCurrencyChange() {
+    const baseCurrency = elements.baseCurrency.value;
+    State.updateSettings({ baseCurrency });
+    showStatus('Base currency updated', 'success');
+}
+// Handle rate change
+function handleRateChange() {
+    const settings = State.getSettings();
+    settings.currencies.USD = parseFloat(elements.rateUSD.value) || 1;
+    settings.currencies.RWF = parseFloat(elements.rateRWF.value) || 1300;
+    settings.currencies.GHS = parseFloat(elements.rateGHS.value) || 15;
+    
+    State.updateSettings(settings);
+    updateConversionDisplay();
+}
+// Handle clear data
+function handleClearData() {
+    if (confirm('Clear all transaction data? This cannot be undone.')) {
+        State.clearRecords();
+        showStatus('All data cleared', 'success');
+        renderRecords();
+        renderDashboard();
+    }
+}
 
 
