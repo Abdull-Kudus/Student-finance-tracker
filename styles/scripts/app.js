@@ -397,3 +397,33 @@ function handleSort(e) {
     State.setSortBy(field);
     renderRecords();
 }
+
+// Handle submit button click
+function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const formData = {
+        description: elements.description.value.trim(),
+        amount: elements.amount.value.trim(),
+        category: elements.category.value,
+        date: elements.date.value
+    };
+    
+    const validation = validateForm(formData);
+    
+    if (!validation.isValid) {
+        displayFormErrors(validation.errors);
+        showStatus('Please fix validation errors', 'error');
+        return;
+    }
+    
+    const editingId = State.getEditingId();
+    
+    if (editingId) {
+        State.updateRecord(editingId, formData);
+        showStatus('Transaction updated successfully!', 'success');
+        State.setEditingId(null);
+    } else {
+        State.addRecord(formData);
+        showStatus('Transaction added successfully!', 'success');
+    }
