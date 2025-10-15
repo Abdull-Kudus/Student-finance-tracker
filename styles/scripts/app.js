@@ -383,3 +383,10 @@ function updateConversionDisplay() {
     elements.convert100RWF.textContent = (100 * rwfRate).toLocaleString();
     elements.convert100GHS.textContent = (100 * ghsRate).toLocaleString();
 }
+
+// Handle search input
+function handleSearch() {
+    State.setSearchPattern(elements.searchPattern.value);
+    State.setCaseSensitive(elements.caseSensitive.checked);
+    renderRecords();
+}
