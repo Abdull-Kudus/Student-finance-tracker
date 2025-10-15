@@ -936,3 +936,11 @@ footer {
     }
 }
 
+/* HIGHLIGHT FOR regex search */
+mark {
+    background-color: #fef08a;
+    padding: 0 0.25rem;
+    border-radius: 0.125rem;
+}
+
+
