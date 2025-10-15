@@ -114,3 +114,23 @@ function setupEventListeners() {
     elements.exportBtn.addEventListener('click', handleExport);
     elements.importFile.addEventListener('change', handleImport);
     
+    // Form
+    elements.transactionForm.addEventListener('submit', handleFormSubmit);
+    elements.cancelBtn.addEventListener('click', handleFormCancel);
+    
+    // Live validation
+    setupLiveValidation(elements.description, elements.descriptionError);
+    setupLiveValidation(elements.amount, elements.amountError);
+    setupLiveValidation(elements.date, elements.dateError);
+    
+    // Settings
+    elements.budgetCapInput.addEventListener('change', handleBudgetCapChange);
+    elements.baseCurrency.addEventListener('change', handleCurrencyChange);
+    elements.rateUSD.addEventListener('input', handleRateChange);
+    elements.rateRWF.addEventListener('input', handleRateChange);
+    elements.rateGHS.addEventListener('input', handleRateChange);
+    elements.clearDataBtn.addEventListener('click', handleClearData);
+    
+       // Set default date
+    elements.date.value = new Date().toISOString().split('T')[0];
+}
