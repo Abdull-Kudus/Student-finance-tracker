@@ -1,3 +1,92 @@
 [
-    
+    {
+    "id": "txn_001",
+    "description": "Jollof Rice at Campus",
+    "amount": 8.50,
+    "category": "Food",
+    "date": "2025-10-10",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_002",
+    "description": "48 Laws of Power Book",
+    "amount": 25.00,
+    "category": "Books",
+    "date": "2025-10-08",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_003",
+    "description": "Motor Bike Fuel",
+    "amount": 15.00,
+    "category": "Transport",
+    "date": "2025-10-12",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_004",
+    "description": "Monthly Rent Payment",
+    "amount": 250.00,
+    "category": "Rent",
+    "date": "2025-10-01",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_005",
+    "description": "School Fees Semester 1",
+    "amount": 680.00,
+    "category": "Fees",
+    "date": "2025-09-25",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_006",
+    "description": "WiFi Monthly Subscription",
+    "amount": 30.00,
+    "category": "WiFi",
+    "date": "2025-10-01",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_007",
+    "description": "Cooking Gas Refill",
+    "amount": 30.00,
+    "category": "Gas",
+    "date": "2025-10-05",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_008",
+    "description": "African Coffee Morning",
+    "amount": 3.50,
+    "category": "Food",
+    "date": "2025-10-13",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_009",
+    "description": "Black Swan Trading Book",
+    "amount": 32.00,
+    "category": "Books",
+    "date": "2025-10-07",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  },
+  {
+    "id": "txn_010",
+    "description": "Waakye Lunch Special",
+    "amount": 6.75,
+    "category": "Food",
+    "date": "2025-10-11",
+    "createdAt": "2025-10-14T10:00:00.000Z",
+    "updatedAt": "2025-10-14T10:00:00.000Z"
+  }
 ]
