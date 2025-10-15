@@ -460,3 +460,16 @@ function displayFormErrors(errors) {
         }
     });
 }
+// Clear form errors
+function clearFormErrors() {
+    ['description', 'amount', 'category', 'date'].forEach(field => {
+        const input = elements[field];
+        const errorElement = elements[`${field}Error`];
+        
+        if (input) input.classList.remove('error');
+        if (errorElement) {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+        }
+    });
+}
