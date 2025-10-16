@@ -14,83 +14,102 @@ A fully accessible, responsive financial web application for tracking student ex
 
 ---
 
-### Core Features and Functionality
+## Core Features and Functionality
 
 - **CRUD Operations**: Create, Read, Update, Delete transactions
 - **Data Persistence**: All the data is saved to localStorage
-- **Import/Export**: JSON import/export with validation from scripts directory.
+- **Import/Export**: JSON import/export with validation from scripts directory
 - **Advanced Search**: Regex-powered search with highlighting
 - **Sorting**: Added Sort by date, description, or amount (ascending/descending)
-- **Real-time Statistics**: Dashboard with spending, Budget and Reminder analytics.
+- **Real-time Statistics**: Dashboard with spending, Budget and Reminder analytics
 - **Budget Monitoring**: Set personalized monthly caps with visual spending progress tracking
 - **Multi-currency Support**: USD, RWF (Rwandan Franc), and GHS (Ghanaian Cedis)
-- **Dark/Light Theme Toggle**: Added dark/ light theme toggle to adjust
+- **Dark/Light Theme Toggle**: Added dark/light theme toggle to adjust
 - **Keyboard Accessibility**: Can easily navigate with the keyboard
-- **Offline Acees**: Has offline access
+- **Offline Access**: Has offline access
 
-### My Custom Features Added
+## My Custom Features Added
 
 - Pre-configured categories: Food, Books, Transport, Fees, Rent, WiFi, Gas
 - Cultural food items: Jollof, African Coffee, Banku, Kenkey, Waakye
-- Transport: Motor Bike to campus and movements.
+- Transport: Motor Bike to campus and movements
 - Reading list: 48 Laws of Power, Black Swan, Trading in the Zone
 - Fixed expenses: Rent ($250), Fees ($680), WiFi ($30), Gas ($30)
 
-### Technical Highlights
+## Technical Highlights
 
 - Used 6 regex pattern validations
 - WCAG AA compliant accessibility
-- This App is A Mobile-first responsive design (360px, 768px, 1024px breakpoints)
-- Used Smooth animations and transitions
-- Used Modern gradient UI with professional polish
+- Mobile-first responsive design (360px, 768px, 1024px breakpoints)
+- Smooth animations and transitions
+- Modern gradient UI with professional polish
 
 ---
 
-## Regex Patterns and examples used
+## Regex Patterns and Examples Used
 
 This application uses 6 regex patterns for validation and search:
 
 ### 1. Description Validation
 
-**Pattern:** `/^\S(?:.*\S)?$/`  
-**Purpose:** No leading/trailing spaces  
-**Example Valid:** `Jollof Rice at Campus`  
+**Pattern:** `/^\S(?:.*\S)?$/`
+
+**Purpose:** No leading/trailing spaces
+
+**Example Valid:** `Jollof Rice at Campus`
+
 **Example Invalid:** ` Lunch ` (spaces at start/end)
 
 ### 2. Amount Validation
 
-**Pattern:** `/^(0|[1-9]\d*)(\.\d{1,2})?$/`  
-**Purpose:** Valid number with max 2 decimal places  
-**Example Valid:** `25.50`, `100`, `0.99`  
+**Pattern:** `/^(0|[1-9]\d*)(\.\d{1,2})?$/`
+
+**Purpose:** Valid number with max 2 decimal places
+
+**Example Valid:** `25.50`, `100`, `0.99`
+
 **Example Invalid:** `25.505`, `01.5`, `-10`
 
 ### 3. Date Validation
 
-**Pattern:** `/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/`  
-**Purpose:** Validates YYYY-MM-DD format  
-**Example Valid:** `2025-10-14`, `2024-01-01`  
+**Pattern:** `/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/`
+
+**Purpose:** Validates YYYY-MM-DD format
+
+**Example Valid:** `2025-10-14`, `2024-01-01`
+
 **Example Invalid:** `10-14-2025`, `2025/10/14`, `2025-13-01`
 
 ### 4. Category Validation
 
-**Pattern:** `/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/`  
-**Purpose:** Letters, spaces, and hyphens only  
-**Example Valid:** `Food`, `Motor Bike`, `Wi-Fi`  
+**Pattern:** `/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/`
+
+**Purpose:** Letters, spaces, and hyphens only
+
+**Example Valid:** `Food`, `Motor Bike`, `Wi-Fi`
+
 **Example Invalid:** `Food123`, `Café`, `_Transport`
 
 ### 5. Duplicate Words Detection (Advanced)
 
-**Pattern:** `/\b(\w+)\s+\1\b/`  
-**Purpose:** Detects duplicate consecutive words using backreference  
-**Example Valid:** `Bought new book`  
-**Example Invalid:** `Bought bought book` (duplicate "bought")  
+**Pattern:** `/\b(\w+)\s+\1\b/`
+
+**Purpose:** Detects duplicate consecutive words using backreference
+
+**Example Valid:** `Bought new book`
+
+**Example Invalid:** `Bought bought book` (duplicate "bought")
+
 **Explanation:** `(\w+)` captures a word, `\1` references the captured word
 
 ### 6. Search: Find Cents
 
-**Pattern:** `/\.\d{2}\b/`  
-**Purpose:** Find transactions with cents (two decimal places)  
-**Example Match:** `$8.50`, `$25.99`  
+**Pattern:** `/\.\d{2}\b/`
+
+**Purpose:** Find transactions with cents (two decimal places)
+
+**Example Match:** `$8.50`, `$25.99`
+
 **Example No Match:** `$100`, `$50.5`
 
 ### Search Examples
@@ -181,7 +200,6 @@ My application meets **WCAG 2.1 Level AA** standards:
 
 ---
 
-
 ## Setup Instructions
 
 ### Prerequisites
@@ -193,28 +211,25 @@ My application meets **WCAG 2.1 Level AA** standards:
 ### Installation
 
 1. **Clone the repository:**
-   ```bash
 
-  git clone https://github.com/Abdull-Kudus/frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru.git
-   cd frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru
-   cd student-finance-tracker
-   ```
+```bash
+git clone https://github.com/Abdull-Kudus/frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru.git
+cd frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru
+cd student-finance-tracker
+```
 
 2. **Open in browser:**
    - Simply open `index.html` in your web browser
-   - Or run with live server 
-
-     ```
+   - Or run with live server
 
 3. **Import seed data (optional):**
-
    - Go to Transactions page
    - Click "Import" button
    - Select `seed.json` file
 
 ---
 
-##  File Structure
+## File Structure
 
 ```
 frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru/
@@ -229,12 +244,16 @@ student-finance-tracker/
    │   ├── state.js              # State management
    │   └── app.js                # Main application logic
    ├── seed.json                 # Sample data for import    
-   ├── assets/                   #Images
+   ├── assets/                   # Images
    │   ├── kudus.jpg 
-   |   ├── logo.png 
-   │   ├── reminder.png
-└── README.md                 
+   │   ├── logo.png 
+   │   └── reminder.png
+   └── README.md                 
 ```
+
+---
+
+## Testing
 
 ### Manual Testing Checklist
 
@@ -358,13 +377,15 @@ Create `tests.html` with this simple assertions:
         
         document.getElementById('results').innerHTML = results.map(r => `
             <div style="color: ${r.pass ? 'green' : 'red'}">
-                ${r.pass ? '✓' : '✗'} ${r.name}: ${r.result} (expected ${r.expected})
+                ${r.pass ? 'PASS' : 'FAIL'} ${r.name}: ${r.result} (expected ${r.expected})
             </div>
         `).join('');
     </script>
 </body>
 </html>
 ```
+
+---
 
 ## Contact
 
@@ -380,10 +401,8 @@ African Leadership University (ALU)
 
 ## License
 
-This project is open source and available for educational purposes. Feel free to use it :)
+This project is open source and available for educational purposes. Feel free to use it.
 
 ---
 
 **Built by Abdul Kudus for finance enthusiasts | October 2025**
-
-
