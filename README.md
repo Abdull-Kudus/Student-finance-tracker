@@ -4,7 +4,7 @@
 **Institution:** African Leadership University (ALU)  
 **Role:** Software Engineering Student
 
-A fully accessible, responsive financial web application for tracking student expenses built with HTML, CSS, and Vanilla JavaScript. To demonstrate advanced UI implementations, regex validation, localStorage persistence, and comprehensive accessibility featureslearnt from frontend web development.
+A fully accessible, responsive financial web application for tracking student expenses built with HTML, CSS, and Vanilla JavaScript. To demonstrate advanced UI implementations, regex validation, localStorage persistence, and comprehensive accessibility features learnt from frontend web development.
 
 ## Live Demo
 
@@ -24,6 +24,9 @@ A fully accessible, responsive financial web application for tracking student ex
 - **Real-time Statistics**: Dashboard with spending, Budget and Reminder analytics.
 - **Budget Monitoring**: Set personalized monthly caps with visual spending progress tracking
 - **Multi-currency Support**: USD, RWF (Rwandan Franc), and GHS (Ghanaian Cedis)
+- **Dark/Light Theme Toggle**: Added dark/ light theme toggle to adjust
+- **Keyboard Accessibility**: Can easily navigate with the keyboard
+- **Offline Acees**: Has offline access
 
 ### My Custom Features Added
 
@@ -193,7 +196,7 @@ My application meets **WCAG 2.1 Level AA** standards:
    ```bash
 
   git clone https://github.com/Abdull-Kudus/frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru.git
-
+   cd frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru
    cd student-finance-tracker
    ```
 
@@ -214,17 +217,22 @@ My application meets **WCAG 2.1 Level AA** standards:
 ##  File Structure
 
 ```
+frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru/
 student-finance-tracker/
-├── index.html                 # Main HTML file
-├── styles/
-│   └── main.css              # All styles 
-├── scripts/
-│   ├── storage.js            # localStorage operations
-│   ├── validators.js         # Regex validation rules
-│   ├── search.js             # Search & highlight functions
-│   ├── state.js              # State management
-│   └── app.js                # Main application logic
-├── seed.json                  # Sample data for import                 
+   ├── index.html                 # Main HTML file
+   ├── styles/
+   │   └── main.css              # All styles 
+   ├── scripts/
+   │   ├── storage.js            # localStorage operations
+   │   ├── validators.js         # Regex validation rules
+   │   ├── search.js             # Search & highlight functions
+   │   ├── state.js              # State management
+   │   └── app.js                # Main application logic
+   ├── seed.json                 # Sample data for import    
+   ├── assets/                   #Images
+   │   ├── kudus.jpg 
+   |   ├── logo.png 
+   │   ├── reminder.png
 └── README.md                 
 ```
 
@@ -232,7 +240,7 @@ student-finance-tracker/
 
 #### Form Validation
 
-- [ ] Try adding transaction with empty description
+- [ ] Try adding a transaction with an empty description
 - [ ] Try amount with 3 decimal places (e.g., `10.555`)
 - [ ] Try invalid date format (e.g., `10-14-2025`)
 - [ ] Try category with numbers (e.g., `Food123`)
@@ -377,3 +385,4 @@ This project is open source and available for educational purposes. Feel free to
 ---
 
 **Built by Abdul Kudus for finance enthusiasts | October 2025**
+
