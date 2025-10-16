@@ -10,7 +10,7 @@ A fully accessible, responsive financial web application for tracking student ex
 
 **Unlisted YouTube URL:** []
 
-**Deployed Github Pages URL:** [https://Abdull-Kudus.github.io/student-finance-tracker](https://Abdull-Kudus.github.io/student-finance-tracker)
+**Deployed Github Pages URL:** [https://abdull-kudus.github.io/frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru/](https://abdull-kudus.github.io/frontend-web-dev-summative-Abdul-Kudus-Zakaria-Mukhtaru/)
 
 ---
 
@@ -385,4 +385,5 @@ This project is open source and available for educational purposes. Feel free to
 ---
 
 **Built by Abdul Kudus for finance enthusiasts | October 2025**
+
 
