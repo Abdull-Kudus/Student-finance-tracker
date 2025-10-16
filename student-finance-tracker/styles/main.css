@@ -1186,7 +1186,6 @@ mark {
     }
 }
 
-
 .profile-image {
     width: 120px;      
     height: 120px;
@@ -1195,4 +1194,16 @@ mark {
     border: 3px solid #007bff; 
     margin-bottom: 15px; 
 }
+/* Styling for the logo image */
+.logo-image {
+    width: 32px;
+    height: 32px;
+    object-fit: contain; 
+    vertical-align: middle; 
+    margin-right: 8px; 
+}
 
+.logo {
+    display: flex; 
+    align-items: center; 
+}
